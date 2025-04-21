@@ -1,8 +1,8 @@
 import json
 
 # Função para calcular a perda percentual
-def calcular_perda_percentual(toneladas_colhidas, toneladas_estimadas):
-    perda = ((toneladas_estimadas - toneladas_colhidas) / toneladas_estimadas) * 100
+def calcular_perda_percentual(toneladas_colhidas, toneladas_estimada):
+    perda = ((toneladas_estimada - toneladas_colhidas) / toneladas_estimada) * 100
     return round(perda, 2)
 
 # Função para registrar um talhão
@@ -15,30 +15,29 @@ def registrar_colheita(talhao, estimada, colhida):
         "perda_percentual": perda
     }
 
-# Entrada interativa dos dados
+# Interação com o usuário
 colheitas = []
-print("🔄 Cadastro de talhões - Controle de Perdas na Colheita da Cana-de-Açúcar")
+
 while True:
-    talhao = input("Digite o nome do talhão (ex: Talhão 1): ")
-    estimada = float(input("Informe a produção estimada (em toneladas): "))
-    colhida = float(input("Informe a produção colhida (em toneladas): "))
-
-    colheitas.append(registrar_colheita(talhao, estimada, colhida))
-
-    continuar = input("Deseja adicionar outro talhão? (s/n): ").lower()
-    if continuar != 's':
+    talhao = input("Informe o nome do talhão (ou 'sair' para encerrar): ")
+    if talhao.lower() == 'sair':
         break
 
-# Salvando no arquivo JSON
-with open("dados_colheita.json", "w", encoding="utf-8") as arquivo_json:
-    json.dump(colheitas, arquivo_json, indent=4, ensure_ascii=False)
+    estimada = float(input("Informe a produção estimada (toneladas): "))
+    colhida = float(input("Informe a produção colhida (toneladas): "))
 
-print("✅ Registros salvos com sucesso em dados_colheita.json")
+    colheita = registrar_colheita(talhao, estimada, colhida)
+    colheitas.append(colheita)
 
-# Salvando no arquivo TXT
+# Salvar os dados em JSON
+with open("dados_colheita.json", "w") as arquivo_json:
+    json.dump(colheitas, arquivo_json, indent=4)
+
+# Salvar os dados em TXT
 with open("dados_colheita.txt", "w", encoding="utf-8") as arquivo_txt:
     for r in colheitas:
         linha = f"Talhão: {r['talhao']}, Estimada: {r['estimada']}t, Colhida: {r['colhida']}t, Perda: {r['perda_percentual']}%\n"
         arquivo_txt.write(linha)
 
-print("✅ Registros também salvos com sucesso em dados_colheita.txt")
+print("Registros salvos com sucesso!")
+
