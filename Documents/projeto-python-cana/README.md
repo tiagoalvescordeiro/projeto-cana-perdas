@@ -1,4 +1,4 @@
-﻿# 📊 Projeto: Controle de Perdas na Colheita da Cana-de-Açúcar
+# 📊 Projeto: Controle de Perdas na Colheita da Cana-de-Açúcar
 
 ## 🌱 Contexto
 A colheita da cana-de-açúcar, especialmente a mecanizada, pode gerar perdas significativas — chegando a até 15% da produção. Este sistema foi desenvolvido para auxiliar produtores e gestores do agronegócio a registrar, calcular e acompanhar as perdas durante a colheita, permitindo uma análise mais precisa e ações corretivas.
@@ -18,16 +18,28 @@ Criar uma aplicação em Python para:
 - Interface interativa via terminal (input do usuário)
 
 ## ▶️ Como executar o projeto
-1. Certifique-se de ter Python instalado (3.10+).
-2. Faça o download/clonagem do projeto.
-3. Execute o script `main.py`:
-```bash
-python main.py
-```
-4. Siga o menu interativo para registrar os dados dos talhões.
-5. Os arquivos `dados_colheita.json` e `dados_colheita.txt` serão gerados na mesma pasta.
+
+1. Certifique-se de ter o Python instalado (versão 3.10 ou superior).
+2. Faça o download ou clonagem do repositório.
+3. Execute o script `main.py` com o comando:
+
+   ```bash
+   python main.py
+   ```
+
+4. **Siga o menu interativo** para registrar os dados dos talhões:
+   - Informe o nome do talhão
+   - Informe a produção estimada (em toneladas)
+   - Informe a produção colhida (em toneladas)
+   - O sistema calculará automaticamente a perda percentual
+   - Você pode adicionar quantos talhões quiser
+
+5. Ao final, dois arquivos serão gerados na pasta:
+   - `dados_colheita.json` → formato estruturado em JSON
+   - `dados_colheita.txt` → relatório simples em texto
 
 ## 🧪 Exemplo de saída em JSON
+
 ```json
 [
   {
@@ -40,8 +52,8 @@ python main.py
 ```
 
 ## 👨‍💻 Autores
-- Tiago Alves Cordeiro - RM561791
-- Edson Henrique Felix Batista - RM566321
+- Tiago Alves Cordeiro - RM561791  
+- Edson Henrique Felix Batista - RM566321  
 - Matheus Parra - RM561907
 
 ---
