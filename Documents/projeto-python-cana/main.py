@@ -15,23 +15,30 @@ def registrar_colheita(talhao, estimada, colhida):
         "perda_percentual": perda
     }
 
-# Simulação de dados
-colheitas = [
-    registrar_colheita("Talhão 1", 100, 85),
-    registrar_colheita("Talhão 2", 120, 100),
-    registrar_colheita("Talhão 3", 90, 70)
-]
+# Entrada interativa dos dados
+colheitas = []
+print("🔄 Cadastro de talhões - Controle de Perdas na Colheita da Cana-de-Açúcar")
+while True:
+    talhao = input("Digite o nome do talhão (ex: Talhão 1): ")
+    estimada = float(input("Informe a produção estimada (em toneladas): "))
+    colhida = float(input("Informe a produção colhida (em toneladas): "))
+
+    colheitas.append(registrar_colheita(talhao, estimada, colhida))
+
+    continuar = input("Deseja adicionar outro talhão? (s/n): ").lower()
+    if continuar != 's':
+        break
 
 # Salvando no arquivo JSON
-with open("dados_colheita.json", "w") as arquivo_json:
-    json.dump(colheitas, arquivo_json, indent=4)
+with open("dados_colheita.json", "w", encoding="utf-8") as arquivo_json:
+    json.dump(colheitas, arquivo_json, indent=4, ensure_ascii=False)
 
-print("Registros salvos com sucesso em dados_colheita.json")
-# Salvando em arquivo TXT
+print("✅ Registros salvos com sucesso em dados_colheita.json")
+
+# Salvando no arquivo TXT
 with open("dados_colheita.txt", "w", encoding="utf-8") as arquivo_txt:
     for r in colheitas:
         linha = f"Talhão: {r['talhao']}, Estimada: {r['estimada']}t, Colhida: {r['colhida']}t, Perda: {r['perda_percentual']}%\n"
         arquivo_txt.write(linha)
 
-print("Registros também salvos com sucesso em dados_colheita.txt")
-
+print("✅ Registros também salvos com sucesso em dados_colheita.txt")
