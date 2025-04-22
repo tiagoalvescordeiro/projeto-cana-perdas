@@ -44,6 +44,7 @@ Criar uma aplicação em Python para:
 ```json
 [
   {
+   "cultura": "Café"
     "talhao": "Talhão 1",
     "estimada": 100,
     "colhida": 85,
