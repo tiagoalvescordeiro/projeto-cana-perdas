@@ -1,9 +1,9 @@
 [
     {
-        "cultura": "Café",
-        "talhao": "teste",
-        "estimada": 10.0,
-        "colhida": 10.0,
-        "perda_percentual": 0.0
+        "cultura": "Milho",
+        "talhao": "milho setembro",
+        "estimada": 1000.0,
+        "colhida": 950.0,
+        "perda_percentual": 5.0
     }
 ]

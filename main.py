@@ -2,6 +2,9 @@ import json
 import os
 from db import conectar_oracle
 
+ 
+
+
 # Função para calcular a perda percentual
 def calcular_perda_percentual(toneladas_colhidas, toneladas_estimadas):
     perda = ((toneladas_estimadas - toneladas_colhidas) / toneladas_estimadas) * 100
@@ -42,7 +45,7 @@ def salvar_txt(colheitas, caminho):
 
 
 def exibir_menu_culturas():
-    culturas = ["Milho", "Soja", "Cana-de-açúcar", "Café"]
+    culturas = ['Café', 'Soja', 'Cana-de-Açucar', 'Milho']
     
     print("Selecione a cultura agrícola:")
     for i, cultura in enumerate(culturas, start=1):
@@ -65,11 +68,10 @@ def exibir_menu_culturas():
 # Menu interativo
 def menu():
     colheitas = []
-    print(" Cadastro de Talhões - Controle de Perdas na Colheita da Cana")
-
+    print("Cadastro de Talhões - Controle de Perdas na Colheita")
+    print("Conexão do banco :", bool(conectar_oracle))
     while True:
         cultura_escolhida = exibir_menu_culturas()
-
         talhao = input("Digite o nome do talhão (ex: Talhão 1): ")
         estimada = entrada_float("Informe a produção estimada (em toneladas): ")
         colhida = entrada_float("Informe a produção colhida (em toneladas): ")
