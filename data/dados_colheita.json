@@ -1,20 +1,9 @@
 [
     {
-        "talhao": "Talh\u00e3o 1",
-        "estimada": 100,
-        "colhida": 85,
-        "perda_percentual": 15.0
-    },
-    {
-        "talhao": "Talh\u00e3o 2",
-        "estimada": 120,
-        "colhida": 100,
-        "perda_percentual": 16.67
-    },
-    {
-        "talhao": "Talh\u00e3o 3",
-        "estimada": 90,
-        "colhida": 70,
-        "perda_percentual": 22.22
+        "cultura": "Café",
+        "talhao": "teste",
+        "estimada": 10.0,
+        "colhida": 10.0,
+        "perda_percentual": 0.0
     }
 ]
