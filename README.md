@@ -28,6 +28,7 @@ Criar uma aplicação em Python para:
    ```
 
 4. **Siga o menu interativo** para registrar os dados dos talhões:
+   - Selecione a Cultura
    - Informe o nome do talhão
    - Informe a produção estimada (em toneladas)
    - Informe a produção colhida (em toneladas)
